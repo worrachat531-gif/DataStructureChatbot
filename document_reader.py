@@ -93,33 +93,33 @@ class DocumentReader:
             return "Error: Could not read the dataset file."
 
 
-def read_kmutnb_dataset(file_path: str = "C:\kmutnb_chatbot\workaw\DataSetDataStructure.docx") -> str:
+def read_kmutnb_dataset(file_path: str = "DataSetDataStructure.docx") -> str:
     """
     Convenience function to read the KMUTNB dataset
-
+    
     Args:
         file_path: Path to the Word document
-
+        
     Returns:
         String content of the document
     """
     reader = DocumentReader(file_path)
     content = reader.read_document()
-
+    
     if content is None:
         return "Error: Could not read the dataset file."
-
+    
     return content
 
 
-def get_kmutnb_summary(file_path: str = "C:\kmutnb_chatbot\workaw\DataSetDataStructure.docx") -> str:
+def get_kmutnb_summary(file_path: str = "DataSetDataStructure.docx") -> str:
     """
     Get a summary of the KMUTNB dataset for API usage.
     This function is now modified to return the full content, not just a summary.
-
+    
     Args:
         file_path: Path to the Word document
-
+        
     Returns:
         String content of the document
     """

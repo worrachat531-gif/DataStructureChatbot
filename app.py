@@ -30,14 +30,22 @@ SAFETY_SETTINGS = {
 @st.cache_data
 def load_document_content():
     """โหลดเนื้อหาเอกสารแค่ครั้งเดียว"""
-    file_path = r"C:\kmutnb_chatbot\workaw\DataSetDataStructure.docx"
+    # *** เปลี่ยนบรรทัดนี้ ***
+    # ให้เป็นชื่อไฟล์ตรงๆ หาก DataSetDataStructure.docx อยู่ใน Root ของโปรเจกต์
+    file_path = "DataSetDataStructure.docx"
+    
+    # หากคุณสร้างโฟลเดอร์ย่อย เช่น 'data' แล้วเอาไฟล์ไปไว้ในนั้น ให้เป็นแบบนี้:
+    # file_path = "data/DataSetDataStructure.docx"
+
     try:
-        document_content = get_kmutnb_summary(file_path) # get_kmutnb_summary ตอนนี้จะคืนค่าเนื้อหาเต็ม
+        document_content = get_kmutnb_summary(file_path)
         if document_content.startswith("Error:") or not document_content.strip():
             return None, document_content
         return document_content, None
     except Exception as e:
-        return None, f"Error reading file: {e}"
+        # อาจจะเพิ่ม print(f"Current working directory: {os.getcwd()}")
+        # เพื่อช่วย Debug ตอนทดสอบบนเครื่อง Local หาก Path ยังมีปัญหา
+        return None, f"Error reading file at {file_path}: {e}" # เพิ่ม {file_path} เพื่อให้เห็น Path ที่มีปัญหา
 
 # โหลดเอกสาร
 document_content_for_context, error = load_document_content()
