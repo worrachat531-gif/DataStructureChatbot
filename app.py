@@ -9,7 +9,7 @@ from google.generativeai.types import HarmCategory, HarmBlockThreshold
 from document_reader import get_kmutnb_summary
 
 # กำหนดค่า API
-genai.configure(api_key="AIzaSyBwjubsasfW5ZuDYwahEr_Be0dXgmBkuyo") # อย่าลืมใส่ API Key ของคุณที่นี่
+genai.configure(api_key="AIzaSyA77U2hbSPzfIH52-0ptcWTt86FZWuvJFE") # อย่าลืมใส่ API Key ของคุณที่นี่
 
 # ปรับ generation_config ให้เหมาะสมกับการตอบคำถามเฉพาะด้าน
 generation_config = {
@@ -99,7 +99,10 @@ def is_datastructure_related(question):
         'ยกตัวอย่าง','Push','Pop','Top','Overflow','Underflow','Stack Pointer',
         'Stack Element','peek','การแทนข้อมูลกราฟ','Depth First Search (DFS)','Breadth First Search (BFS)','Tree',
         'แผนภาพต้นไม้','Root Node','Leaf Node','Subtree','Binary Tree','Full Binary Tree','Complete Binary Tree',
-        'Inorder Traversal','Preorder Traversal','Postorder Traversal','BST'
+        'Inorder Traversal','Preorder Traversal','Postorder Traversal','BST','Java','Java การเข้าถึงข้อมูลในอาร์เรย์','Java การแทรกข้อมูล','Java การลบข้อมูล',
+        'Java การค้นหาข้อมูล','เหตุผล O(1)', 'Vertex', 'Eage (เส้นเชื่อม)', 'Directed','Undirected', 'Weighted', ' Unweighted ','Graph Representation','Adjacency Matrix',
+        'Adjacency List ','BFS','DFS','Shortest Path','Dijkstra Algorithm','Bellman-Ford Algorithm','Minimum Spanning Tree (MST)','Bellman-Ford Algorithm',
+        'Prim’s Algorithm (MST)','Kruskal’s Algorithm','Social Network','GPS / Shortest Path','Network Routing'
     ]
     # ตรวจสอบคำที่เกี่ยวข้องกับ Data Structure
     return any(keyword.lower() in question.lower() for keyword in ds_keywords) or \
