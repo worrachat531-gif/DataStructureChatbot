@@ -9,7 +9,7 @@ from google.generativeai.types import HarmCategory, HarmBlockThreshold
 from document_reader import get_kmutnb_summary
 
 # กำหนดค่า API
-genai.configure(api_key="AIzaSyA77U2hbSPzfIH52-0ptcWTt86FZWuvJFE") # อย่าลืมใส่ API Key ของคุณที่นี่
+genai.configure(api_key="AIzaSyDda5vRMOlHvJM518k88_5dJS31edgqOFo") # อย่าลืมใส่ API Key ของคุณที่นี่
 
 # ปรับ generation_config ให้เหมาะสมกับการตอบคำถามเฉพาะด้าน
 generation_config = {
@@ -76,7 +76,7 @@ ENHANCED_PROMPT = f"""
 def create_model():
     """สร้าง model ด้วย enhanced prompt"""
     return genai.GenerativeModel(
-        model_name="gemini-1.5-flash",
+        model_name="gemini-2.5-flash", # เปลี่ยนเป็น gemini-2.5-flash ที่นี่
         safety_settings=SAFETY_SETTINGS,
         generation_config=generation_config,
         system_instruction=ENHANCED_PROMPT
@@ -86,10 +86,10 @@ def is_datastructure_related(question):
     """ตรวจสอบว่าคำถามเกี่ยวข้องกับ Data Structure หรือไม่"""
     ds_keywords = [
         'array', 'linked list', 'stack', 'queue', 'tree', 'graph',
-        'hash', 'sorting', 'searching', 'algorithm', 'data structure',
-        'อาร์เรย์', 'ลิงค์ลิสต์', 'สแตก', 'คิว', 'ต้นไม้', 'กราฟ',
-        'การเรียงลำดับ', 'การค้นหา', 'อัลกอริทึม', 'โครงสร้างข้อมูล',
-        'โครงสร้างข้อมูลเชิงเส้น', 'โครงสร้างข้อมูลไม่เชิงเส้น',
+        'hash', 'sorting', 'searching', 'algorithm', 'data structure','Time/Space Complexity','FIFO',
+        'อาร์เรย์', 'ลิงค์ลิสต์', 'สแตก', 'คิว', 'ต้นไม้', 'กราฟ','การทำงานของสเเตก','สเเตกประยุกต์',
+        'การเรียงลำดับ', 'การค้นหา', 'อัลกอริทึม', 'โครงสร้างข้อมูล','ฟิโฟ','ฟิโฟคือ','ประเภทของคิว'
+        'โครงสร้างข้อมูลเชิงเส้น', 'โครงสร้างข้อมูลไม่เชิงเส้น','การดำเนินการของต้มไม้',
         'infix', 'postfix', 'traversal', 'binary search tree', 'bst',
         'heap', 'priority queue', 'adjacency matrix', 'bfs', 'dfs',
         'time complexity', 'big o', 'operation', 'การดำเนินงาน',
