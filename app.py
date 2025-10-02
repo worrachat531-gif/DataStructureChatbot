@@ -9,7 +9,7 @@ from google.generativeai.types import HarmCategory, HarmBlockThreshold
 from document_reader import get_kmutnb_summary
 
 # กำหนดค่า API
-genai.configure(api_key="AIzaSyDda5vRMOlHvJM518k88_5dJS31edgqOFo") # อย่าลืมใส่ API Key ของคุณที่นี่
+genai.configure(api_key="AIzaSyC6qjppnnf9g1G8rCNOD4hh6tsHplGYiK0") # อย่าลืมใส่ API Key ของคุณที่นี่
 
 # ปรับ generation_config ให้เหมาะสมกับการตอบคำถามเฉพาะด้าน
 generation_config = {
